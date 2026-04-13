@@ -34,17 +34,24 @@ class Login {
             return matcher.matches();
  
     }
-  
+    
+    //method that validates the cellphone number
+        boolean checkcellPhonenum(String cellPhonenum){
+        
+        //declare a variable to store the pattern
+        String regex  = "^(\\+27|0)[6-8][0-9]{8}$";
+       
             
-        }
-        //method to return registration status
-        String registerUser(String firstName, String lastName, String userName, String Password, String cellPhonenum){
-       if(checkuserName(userName) && checkcellPhonenum (cellPhonenum)){
-           return "User successfully registered";
-       }else{
-           System.out.print("Username, password or cellphone number incorrectly formatted, registration unsuccessfully");
-           System.exit(0);
-           return null; 
+            //pattern object to compile the regex
+            Pattern pattern = Pattern.compile (regex);
+            
+            //matcher object to match the student number to the regex
+            Matcher matcher = pattern.matcher(cellPhonenum);
+            
+            //true is pattern matches student number
+            return matcher.matches();
+            
+      
        }
        
           }
