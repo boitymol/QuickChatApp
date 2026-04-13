@@ -38,7 +38,7 @@ public class QuickChatApp {
           if(login.checkuserName(Username)){
               System.out.println("Username successfully captured");
           }else {
-              System.out.print("Username is not correctly formatted; please ensure that your usrename contains an underscore and is no more than five characters long");
+              System.out.println("Username is not correctly formatted; please ensure that your usrename contains an underscore and is no more than five characters long");
           }
       
       //Prompt user to enter their details 
