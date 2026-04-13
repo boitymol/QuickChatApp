@@ -34,22 +34,7 @@ class Login {
             return matcher.matches();
  
     }
-    
-    //method that validates the cellphone number
-        boolean checkcellPhonenum(String cellPhonenum){
-        
-        //declare a variable to store the pattern
-        String regex  = "^(\\+27|0)[6-8][0-9]{8}$";
-       
-            
-            //pattern object to compile the regex
-            Pattern pattern = Pattern.compile (regex);
-            
-            //matcher object to match the student number to the regex
-            Matcher matcher = pattern.matcher(cellPhonenum);
-            
-            //true is pattern matches student number
-            return matcher.matches();
+  
             
         }
         //method to return registration status
