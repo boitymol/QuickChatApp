@@ -93,6 +93,7 @@ public class LoginTest {
         String firstName = "boitumelo";
         String lastName = "molefe";
         String userName = "boit_";
+       
         String Password = "Boity@8";
         String loginuserName = "boit_";
         String loginPassword = "Boity@8";
