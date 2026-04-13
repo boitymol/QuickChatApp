@@ -51,13 +51,19 @@ class Login {
             //true is pattern matches student number
             return matcher.matches();
             
-      
+        }
+        //method to return registration status
+        String registerUser(String firstName, String lastName, String userName, String Password, String cellPhonenum){
+       if(checkuserName(userName) && checkcellPhonenum (cellPhonenum)){
+           return "User successfully registered";
+       }else{
+           System.out.print("Username, password or cellphone number incorrectly formatted, registration unsuccessfully");
+           System.exit(0);
+           return null; 
        }
        
           }
-        //method to check login credentials
-        boolean loginUser(String userName, String Password, String loginUsername, String loginPassword ){
-                return userName.equals(loginUsername)&& Password.equals(loginPassword);       
+        
         }
         
         //method to return login status
