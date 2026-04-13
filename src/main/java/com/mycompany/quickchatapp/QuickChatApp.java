@@ -47,11 +47,7 @@ public class QuickChatApp {
       
           //Validate
           
-       if(!login.checkPasswordComplexity(Password)){
-          System.out.println("Pssword successfully captured"); 
-       }else{
-           System.out.print("Password is not correctly formatted, please ensure that the password contains atleast eigth characters, a capital letter, a number, and a special character");
-       }
+       
       
       System.out.println("Enter your cellphone number:");
       cellPhonenum = input.nextLine();

@@ -19,7 +19,20 @@ class Login {
     }
     
     //method to validate the password
-    
+    boolean checkPasswordComplexity (String Password){
+        
+        //declare a variable to store the pattern
+        String regex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()]).{8,}$";
+        
+        //pattern object to compile the regex
+            Pattern pattern = Pattern.compile(regex);
+       
+            //matcher object to match the password to the regex
+            Matcher matcher = pattern.matcher(Password);
+            
+            //true is pattern matches password
+            return matcher.matches();
+ 
     }
     
     //method that validates the cellphone number
