@@ -4,6 +4,10 @@
  */
 package com.mycompany.quickchatapp;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,8 +19,25 @@ class Messages {
     
     //method to message ID
     boolean checkMessageID(String messageID){
-        return messageID.length () < 10;
+        return messageID.length () == 10;
                    
+    }
+    
+    //method to message ID
+    boolean checkMessageLength(String message){
+        return message.length () <= 250;
+                   
+    }
+    
+    
+    
+    public String generateMessageID(){
+        
+        Random random = new Random();
+        
+        long number = 1000000000L + (long) (random.nextDouble() * 9000000000L);
+        
+        return String.valueOf(number);
     }
     
     //method that validates the cellphone number
@@ -61,8 +82,7 @@ class Messages {
     
     //method to allow the user to chose between send, store or disregard
     String sentMessage(String messageText, String recipientCell){
-        if (messageText.length() <=250 && checkRecipientCell(recipientCell).contains ("successfully")){
-            sentMessage.add(this);
+        if (messageText.length() <=250 && checkRecipientCell(recipientCell).contains ("+27")){
             return "Message sent successfully";
         }else if (messageText.length ()> 250){
             return "Message not set. Please enter message of less than 250 characters";
@@ -72,46 +92,59 @@ class Messages {
     }
     //method to returns all the message sent
     String printMessages(String messageText, String recipientCell, String messageID, String messageHash){
-        if (sentMessages.isEmpty()){
+        if (sentMessage(messageText,recipientCell).isEmpty()){
             return "No message sent yet";
         }
         StringBuilder sb = new StringBuilder();
-        for (Message m: sentMessages){
-            sb.append("Message Hash:").append(m.messageHash).append("\n");
-            sb.append("Recipient:").append(m.recipient).append("\n");
-            sb.append("Message:").append(m.recipient).append("\n\n");     
-        }
+        
+            sb.append("Message ID: ").append(messageID).append("\n");
+            sb.append("Message Hash: ").append(messageHash).append("\n");
+            sb.append("Recipient: ").append(recipientCell).append("\n");
+            sb.append("Message: ").append(messageText).append("\n\n");     
+        
         return sb.toString();
         
     }
     //method to return the otal number of messages sent
-    int returnTotalMessages(String messageText, String recipientCell, String messageID, String messageHash){
-        return TotalMessageSent;
+    int returnTotalMessages(int totalMessages){
+        return totalMessages;
         
+    }
+    
+    public String sentMessage(String messageID, String recipient, String messageHash, String messageText){
+        
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("1.Send message");
+        System.out.println("2.Store Message");
+        System.out.println("3.Disgregard");
+        System.out.println("Choose and option: ");
+        int choice = Integer.parseInt(input.nextLine());
     }
     
     //Your own defined storeMessage method 
-    String storeMessage(String messageText, String recipientCell, String messageID, String messageHash){
-        JSONObject json = new JSONObject();
-        json.put("MessageHash", messageHash);
-        json.put("Recipient", recipientCell);
-        json.put("Message", messageText);
-        json.put("MessageID", messageID);
+    void storeMessage(String messageText, String recipientCell, String messageID, String messageHash){
         
-        return json.toString();
+        try(FileWriter writer = new FileWriter("storeData.json")){
+            
+            writer.write("MessageHash: " + messageHash);
+            writer.write("Recipient: " +  recipientCell);
+            writer.write("Message: " + messageText);
+            writer.write("MessageID" + messageID);
+        }catch(IOException e){
+            
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+        
+        
+        
         
     }
     
-    //Getter for testing
-    long getMessageID(String messageText, String recipientCell, String messageID, String messageHash){
-        return messageID;
-    }
-    String getMessageHash(){
-        return messageHash;
-    }
+    
 }
 
     
         
     
-}
+

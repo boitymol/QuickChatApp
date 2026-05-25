@@ -142,8 +142,8 @@ public class QuickChatApp {
                     
                 }
                 
-                messageID = message.generatemessageID();
-                messageHash = message.createmessageHash(String messageId, String messageText);
+                messageID = message.generateMessageID();
+                messageHash = message.createMessageHash(messageID ,messageText);
                 
                  
                 break; 
