@@ -86,10 +86,13 @@ public class QuickChatApp {
          int option = 0;
          int numMess = 0;
          String recipient = ""; 
-         String MessageHash;
+         String messageHash;
          String sentMessage;
          String printMessages; 
-         String MessageID;
+         String messageID;
+         String messageText;
+         
+         
          
          
          
@@ -139,8 +142,8 @@ public class QuickChatApp {
                     
                 }
                 
-                messageID = message.generateMessageID();
-                messageHash = message.createMessageHash(String messageId, String messageText);
+                messageID = message.generatemessageID();
+                messageHash = message.createmessageHash(String messageId, String messageText);
                 
                  
                 break; 
