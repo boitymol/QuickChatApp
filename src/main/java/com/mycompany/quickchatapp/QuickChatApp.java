@@ -123,7 +123,20 @@ public class QuickChatApp {
                     recipient = "";
                     
                 }
+                System.out.println("Enter your message:");
+                messageText = input.nextLine();
                 
+                while (!message.checkMessageLength(messageText)){
+                    System.out.println("Message must be 250 character or less!!");
+                    System.out.println("Enter message:");
+                    messageText = input.nextLine();
+                    
+                }
+                
+                messageID = message.generateMessageID();
+                messageHash = message.createMessageHash(String messageId, String messageText);
+                
+                 
                 break; 
                 
             case 2:
