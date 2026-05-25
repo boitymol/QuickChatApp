@@ -83,7 +83,7 @@ public class QuickChatApp {
                  
          
          //declare variable to store option
-         int option = 0; 
+         int option = 0;
          int numMess = 0;
          String recipient = ""; 
          
