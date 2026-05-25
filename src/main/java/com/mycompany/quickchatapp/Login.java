@@ -63,6 +63,7 @@ class Login {
            return null; 
        }
        
+     
         }
        
         //method to check login credentials
@@ -74,7 +75,7 @@ class Login {
         String returnLoginStatus(String firstName, String lastName, String userName, String Password, String loginuserName, String loginPassword){
             
             if (loginUser(userName,Password, loginuserName,loginPassword )){
-                return "Welcome" + firstName + "," + lastName + "'" + "it is great to see you again";
+                return "Welcome" + firstName + "," + lastName + "to QuickChatApp" + "it is great to see you again";
             
         }else{
                 return "Username or password incorrect, please try again.";

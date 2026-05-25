@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
@@ -16,7 +16,9 @@ public class QuickChatApp {
         
          //Scanner object to allow user input
            Scanner input = new Scanner (System.in);
+           Messages message = new Messages ();
            
+           /*
            //login object to allow input validation
            Login login = new Login();
            
@@ -77,7 +79,73 @@ public class QuickChatApp {
         loginPassword = input.nextLine();
         
          System.out.println(login.returnLoginStatus(firstName, lastName, Username, Password, loginuserName, loginPassword));
+         */
+                 
          
+         //declare variable to store option
+         int option = 0; 
+         int numMess = 0;
+         String recipient = ""; 
+         
+         
+         //while loop to loop menu until user selects quit
+         do{
+         System.out.println("================= MENU =================");
+         System.out.println("1.SEND MESSAGES");
+         System.out.println("2.VIEW RECENTLY SENT MESSAGES");
+         System.out.println("3.QUIT");
+         System.out.print("Please select one option:");
+         option = Integer.parseInt(input.nextLine());
+         
+         
+         //create menu
+        switch(option){
+            case 1: 
+                //send messages
+                System.out.println("============SEND MESSAGES============");
+                
+                //prompt user to enter set of numbers
+                System.out.print("How many messages do you want to send?");
+                numMess = Integer.parseInt(input.nextLine());
+                
+                //Loop numMessages times
+                for(int i = 0; i < numMess; i++){
+                    
+                    System.out.println("\nMessage " + (i + 1) + " of " + numMess);
+                    
+                    //2. Get recipient with validation
+                    while(!message.checkcellPhonenum(recipient)){
+                        System.out.print("Enter recipient cellphone number with international code:");
+                        recipient = input.nextLine();
+                        System.out.println(message.checkRecipientCell(recipient));
+                    }
+                    
+                    recipient = "";
+                    
+                }
+                
+                break; 
+                
+            case 2:
+                //show recently sent messages
+                System.out.println("Coming Soon!");
+                break;
+                
+                
+            case 3:
+                //quit
+                System.out.println("Goodbye!!");
+                break;
+                
+            default:
+                //if user has selected an invalid option
+                System.out.println("Invalid option, please enter 1,2 or 3");
+                break;
+                
+        }
         
+        
+         }while(option !=3);
+         
     }
 }
