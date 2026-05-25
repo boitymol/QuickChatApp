@@ -86,6 +86,12 @@ public class QuickChatApp {
          int option = 0;
          int numMess = 0;
          String recipient = ""; 
+         String MessageHash;
+         String sentMessage;
+         String printMessages; 
+         String MessageID;
+         
+         
          
          
          //while loop to loop menu until user selects quit
