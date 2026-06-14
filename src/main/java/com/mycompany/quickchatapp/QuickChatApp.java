@@ -180,7 +180,41 @@ public class QuickChatApp {
                             String searchID = input.nextLine();
                             Messages.searchByMessageID(searchID);
                             
+                        }else if (subChoice == 4){
+                            //2d - search by recipient
+                            System.out.println("Enter recipient number to search:");
+                            String searchRecipient = input.nextLine();
+                            Messages.searchByRecipient(searchRecipient);
                             
+                        }else if (subChoice == 5){
+                            //2e - delete by hash
+                            System.out.println("Enter message hash to delete:");
+                            String hash = input.nextLine();
+                            Messages.deleteByHash(hash);
+                            
+                        }else if (subChoice == 6){
+                            //2f - full report
+                            Messages.displayReport();
+                            
+                        }else if (subChoice == 7){
+                            System.out.println("Returning to main menu.");
+                            
+                        }else {
+                            System.out.println("Invalid option, please choose 1 - 7.");
+                            
+                        }
+         }    
+                        
+                        }else {
+                                System.out.println("Invalid option, please enter 1, 2, 3 or 4.");
+                                
+                                } 
+            }
+       
+        }else {
+            System.out.println("Username or password incorrect,please try again,");
+            
+        }
         
         
         
