@@ -80,6 +80,21 @@ public class QuickChatApp {
             System.out.println("Welcome to QuickChat.");
 
             int option = 0;
+            
+            // Keep showing the menu until user selects quit
+            while (option != 3) {
+
+                System.out.println("\n================= MENU =================");
+                System.out.println("1) Send Messages");
+                System.out.println("2) View recently sent messages");
+                System.out.println("3) Quit");
+                System.out.println("4) Stored Messages");
+                System.out.print("Please select an option:");
+                option = Integer.parseInt(input.nextLine());
+
+                if (option == 1) {
+
+                    System.out.println("============ SEND MESSAGES ============");
         
         
         
