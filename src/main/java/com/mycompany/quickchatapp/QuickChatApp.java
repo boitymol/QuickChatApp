@@ -95,6 +95,63 @@ public class QuickChatApp {
                 if (option == 1) {
 
                     System.out.println("============ SEND MESSAGES ============");
+                    
+                    // Ask how many messages after selecting Send
+                    System.out.print("How many messages do you want to send?");
+                    int numMess = Integer.parseInt(input.nextLine());
+
+                    // for loop runs exactly numMess times
+                    for (int i = 0; i < numMess; i++) {
+
+                        System.out.println("\nMessage " + (i + 1) + " of " + numMess);
+
+                        // Get and validate recipient
+                        System.out.println("Enter recipient cellphone number (with international code):");
+                        String recipient = input.nextLine();
+
+                        if (!login.checkcellPhonenum(recipient)) {
+                            System.out.println(new Messages(0, recipient, "x").checkRecipientCell(recipient));
+                            i--; // don't count this attempt
+                            continue;
+                        }
+
+                        // Get and validate message text
+                        System.out.println("Enter your message (max 250 characters):");
+                        String messageText = input.nextLine();
+
+                        if (messageText.length() > 250) {
+                            int over = messageText.length() - 250;
+                            System.out.println("Message exceeds 250 characters by " + over + "; please reduce the size.");
+                            i--; // don't count this attempt
+                            continue;
+                        }
+
+                        // Create the message object
+                        Messages msg = new Messages(i + 1, recipient, messageText);
+
+                        // Show full message details
+                        System.out.println(msg.printMessages());
+
+                        // Ask what to do with it
+                        String result = msg.sentMessage();
+                        System.out.println(result);
+
+                    } // for loop exits automatically after numMess
+
+                    // Show total after all messages done
+                    Messages temp = new Messages(0, "+270000000000", "placeholder");
+                    System.out.println("\nTotal messages sent: " + temp.returnTotalMessages());
+
+                } else if (option == 2) {
+                    System.out.println("Coming Soon!");
+
+                } else if (option == 3) {
+                    System.out.println("Goodbye!!");
+
+                } else if (option == 4) {
+
+                    // Stored Messages sub-menu
+                    int subChoice = 0;
         
         
         
