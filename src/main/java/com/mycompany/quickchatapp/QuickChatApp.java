@@ -153,7 +153,34 @@ public class QuickChatApp {
                     // Stored Messages sub-menu
                     int subChoice = 0;
         
-        
+         while (subChoice != 7) {
+
+                        System.out.println("\n--- Stored Messages Menu ---");
+                        System.out.println("1) Display all stored messages (recipient + message)");
+                        System.out.println("2) Display the longest message");
+                        System.out.println("3) Search for a message by ID");
+                        System.out.println("4) Search messages for a particular recipient");
+                        System.out.println("5) Delete a message using its hash");
+                        System.out.println("6) Display full message report");
+                        System.out.println("7) Back to main menu");
+
+                        subChoice = Integer.parseInt(input.nextLine());
+
+                        if (subChoice == 1){
+                            //2a - display stored messages
+                            Messages.displayStoredSendersAndRecipients();
+                            
+                        }else if (subChoice == 2){
+                            //2b - longest message
+                            Messages.displayLongestMessage();
+                            
+                        }else if (subChoice == 3){
+                            //2c - search by name ID
+                            System.out.println("Enter message ID to search:");
+                            String searchID = input.nextLine();
+                            Messages.searchByMessageID(searchID);
+                            
+                            
         
         
         
