@@ -51,6 +51,35 @@ public class QuickChatApp {
         }
         System.out.println("Password successfully captured.");
         
+          // Get and validate cell number
+        System.out.println("Enter your cellphone number:");
+        cellPhonenum = input.nextLine();
+
+        while (!login.checkcellPhonenum(cellPhonenum)) {
+            System.out.println("Cellphone number incorrectly formatted or does not contain international code.");
+            System.out.println("Try again:");
+            cellPhonenum = input.nextLine();
+        }
+        System.out.println("Cellphone number successfully added.");
+
+        // Show registration status
+        System.out.println(login.registerUser(firstName, lastName, username, password, cellPhonenum));
+
+        // Login section
+        System.out.println("\n================= LOGIN =================");
+        System.out.println("Enter your username:");
+        String loginUsername = input.nextLine();
+
+        System.out.println("Enter your password:");
+        String loginPassword = input.nextLine();
+
+        // Check login credentials
+        if (login.loginUser(username, password, loginUsername, loginPassword)) {
+
+            System.out.println(login.returnLoginStatus(firstName, lastName, username, password, loginUsername, loginPassword));
+            System.out.println("Welcome to QuickChat.");
+
+            int option = 0;
         
         
         
