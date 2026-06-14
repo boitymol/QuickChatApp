@@ -29,6 +29,27 @@ public class QuickChatApp {
         System.out.println("Enter your last name:");
         lastName = input.nextLine();
         
+        // Get and validate username
+        System.out.println("Enter a valid username (must contain _ and be max 5 characters):");
+        username = input.nextLine();
+
+        while (!login.checkuserName(username)) {
+            System.out.println("Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters long.");
+            System.out.println("Enter username:");
+            username = input.nextLine();
+        }
+        System.out.println("Username successfully captured.");
+
+        // Get and validate password
+        System.out.println("Enter a valid password (min 8 characters, 1 capital, 1 number, 1 special character):");
+        password = input.nextLine();
+
+        while (!login.checkPasswordComplexity(password)) {
+            System.out.println("Password is not correctly formatted; please ensure that the password contains at least 8 characters, a capital letter, a number, and a special character.");
+            System.out.println("Enter password:");
+            password = input.nextLine();
+        }
+        System.out.println("Password successfully captured.");
         
         
         
