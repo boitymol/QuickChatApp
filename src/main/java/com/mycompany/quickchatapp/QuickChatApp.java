@@ -14,11 +14,44 @@ public class QuickChatApp {
 
     public static void main(String[] args) {
         
+         Scanner input = new Scanner(System.in);
+        Login login = new Login();
+
+        // Declare variables for registration
+        String firstName, lastName, username, password, cellPhonenum;
+
+        System.out.println("================= SIGN UP =================");
+
+        // Get first and last name
+        System.out.println("Enter your first name:");
+        firstName = input.nextLine();
+
+        System.out.println("Enter your last name:");
+        lastName = input.nextLine();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
          //Scanner object to allow user input
            Scanner input = new Scanner (System.in);
-           Messages message = new Messages ();
+           Messages messages = new Messages ();
            
-           /*
+          
            //login object to allow input validation
            Login login = new Login();
            
